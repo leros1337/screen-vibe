@@ -5,6 +5,9 @@ on:
     tags:
       - 'v*' # Trigger on tags that start with 'v', like v1.0.0
 
+permissions:
+  contents: write
+
 jobs:
   build:
     name: Build and Release
