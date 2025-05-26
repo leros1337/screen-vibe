@@ -1,6 +1,8 @@
 # Binaries
 screen-vibe
 screen-vibe.exe
+screen-vibe-*
+screen-vibe-*.exe
 
 # macOS metadata
 .DS_Store
