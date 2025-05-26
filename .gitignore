@@ -1,0 +1,32 @@
+# Binaries
+screen-vibe
+screen-vibe.exe
+
+# macOS metadata
+.DS_Store
+**/.DS_Store
+
+# Git 
+.git/
+
+# Output files and logs
+output/
+*.log
+*.mkv
+
+# IDE files
+.vscode/
+.idea/
+
+# Compiled Object files, Static and Dynamic libs
+*.o
+*.a
+*.so
+*.exe
+*.dll
+*.dylib
+
+# Go specific
+*.test
+*.prof
+/vendor/
