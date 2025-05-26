@@ -721,8 +721,8 @@ func hasNvidiaGPU() bool {
 			return true
 		}
 	} else if runtime.GOOS == "windows" {
-		// Check Windows registry or WMI for NVIDIA devices
-		cmd := exec.Command("wmic", "path", "win32_VideoController", "get", "name")
+		// Use PowerShell with Get-CimInstance to detect NVIDIA GPUs (works on Windows 10/11)
+		cmd := exec.Command("powershell", "-Command", "Get-CimInstance Win32_VideoController | Select-Object -ExpandProperty Name")
 		output, err := cmd.Output()
 		if err == nil && strings.Contains(string(output), "NVIDIA") {
 			return true
@@ -743,8 +743,8 @@ func hasIntelGPU() bool {
 			return true
 		}
 	} else if runtime.GOOS == "windows" {
-		// Check Windows registry or WMI for Intel graphics devices
-		cmd := exec.Command("wmic", "path", "win32_VideoController", "get", "name")
+		// Use PowerShell with Get-CimInstance to detect Intel GPUs (works on Windows 10/11)
+		cmd := exec.Command("powershell", "-Command", "Get-CimInstance Win32_VideoController | Select-Object -ExpandProperty Name")
 		output, err := cmd.Output()
 		if err == nil && (strings.Contains(string(output), "Intel") &&
 			strings.Contains(string(output), "Graphics")) {
@@ -766,8 +766,8 @@ func hasAMDGPU() bool {
 			return true
 		}
 	} else if runtime.GOOS == "windows" {
-		// Check Windows registry or WMI for AMD graphics devices
-		cmd := exec.Command("wmic", "path", "win32_VideoController", "get", "name")
+		// Use PowerShell with Get-CimInstance to detect AMD GPUs (works on Windows 10/11)
+		cmd := exec.Command("powershell", "-Command", "Get-CimInstance Win32_VideoController | Select-Object -ExpandProperty Name")
 		output, err := cmd.Output()
 		if err == nil && (strings.Contains(string(output), "AMD") ||
 			strings.Contains(string(output), "Radeon")) {

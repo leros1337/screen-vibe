@@ -101,6 +101,7 @@ A Go (trash) application to record the screen using ffmpeg with hardware-acceler
   ```sh
   winget install ffmpeg
   ```
+- PowerShell 5.1 or newer (for Windows 10/11 GPU detection)
 - For hardware acceleration:
   - NVIDIA GPU: ffmpeg with NVENC support
   - Intel GPU: ffmpeg with QuickSync support
